@@ -24,22 +24,23 @@ class coutClass:
 
 
 class cinClass:
-    def __rlshift__(self, value) -> str:
-        """ перегрузка value << self """
-        return input("")
+    def __rshift__(self, value):
+        """ перегрузка self >> value """
+        value.data = input()
 
 
 cout = coutClass()
 cin = cinClass()
 endl = os.linesep
 
+
 def main():
 
     cout << "Hello World!" << endl;
     cout << "Do you want something?" << endl;
 
-    x: str = str();
-    x <<= cin;
+    x: string = string();
+    cin >> x;
 
     if (x == "yes"):
         cout << "But I have nothing. :(" << endl;
