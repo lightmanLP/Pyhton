@@ -1,5 +1,6 @@
-import sys
 from collections import UserString
+from typing import List
+import sys
 import os
 
 
@@ -34,7 +35,7 @@ cin = cinClass()
 endl = os.linesep
 
 
-def main():
+def main(argc: int, argv: List[str], envp: List[str]) -> int:
 
     cout << "Hello World!" << endl;
     cout << "Do you want something?" << endl;
@@ -52,5 +53,5 @@ def main():
     return 0;
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
