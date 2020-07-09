@@ -1,4 +1,5 @@
 import sys
+from collections import UserString
 
 
 __doc__ = """
@@ -7,6 +8,11 @@ __doc__ = """
     НО ЭТО БЫЛ Я, PYTHON!
 
 """
+
+
+class string(UserString):
+    def __init__(self, seq: str = ""):
+        super().__init__(seq)
 
 
 class coutClass:
