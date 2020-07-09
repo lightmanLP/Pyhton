@@ -54,4 +54,7 @@ def main(argc: int, argv: List[str], envp: List[str]) -> int:
 
 
 if __name__ == "__main__":
-    main()
+    argc: int = len(sys.argv)
+    argv: List[str] = sys.argv
+    envp: List[str] = [f"{key}={value}" for key, value in os.environ.items()]
+    main(argc, argv, envp)
