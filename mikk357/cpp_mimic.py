@@ -1,5 +1,6 @@
 import sys
 from collections import UserString
+import os
 
 
 __doc__ = """
@@ -30,21 +31,23 @@ class cinClass:
 
 cout = coutClass()
 cin = cinClass()
-
+endl = os.linesep
 
 def main():
 
-    cout << "Hello World!\n" << "Do you want something?\n";
+    cout << "Hello World!" << endl;
+    cout << "Do you want something?" << endl;
 
     x: str = str();
     x <<= cin;
 
     if (x == "yes"):
-        cout << "But I have nothing. :(\n" << "Bye!\n";
+        cout << "But I have nothing. :(" << endl;
 
     if (x == "no"):
-        cout << "Alright\n" << "Bye!\n";
+        cout << "Alright" << endl;
 
+    cout << "Bye!" << endl;
     return 0;
 
 
