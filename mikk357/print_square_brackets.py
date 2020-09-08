@@ -32,12 +32,15 @@ __builtins__.print("\n\n")
 # сложная версия
 # принимает именованые аргументы, но не может выводить объекты типа slice
 print = type("Printer", (), {
-    "__getitem__": (lambda s, values: __builtins__.print(
-        *[i for i in values if not isinstance(i, slice)],
-        **dict((i.start, i.stop) for i in values if isinstance(i, slice)))
+    "__getitem__": (lambda s, v: __builtins__.print(
+        *filter(
+            lambda o: not isinstance(o, slice),
+            (v if isinstance(v, tuple) else (v,))
+        ),
+        **dict((i.start, i.stop) for i in v if isinstance(i, slice)))
     )})()
 
-print["Hello World!", "Goodbye!", "sep":"\n...\n...\n...\n", "flush":True]
+print["umm...\n", "\nGoodbye!", "sep":"\n...\n...\n...\n", "flush":True]
 
 
 # ах, кстати, всё это можно сделать и без type и лямбда-методов,
