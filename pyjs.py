@@ -1,34 +1,26 @@
 from forbiddenfruit import curse
 
 
-class OrigInt(int):
-  pass
+Int = type("", (int,), {})
+Str = type("", (str,), {})
 
 
-class OrigStr(str):
-  pass
+def add(a, b):
+  """  """
+
+  return str(Str(a) + Str(b))
 
 
-class _Updates:
-  def str_add(a, b):
-    return str(OrigStr(a) + OrigStr(b))
-
-  def str_sub(a, b):
-    return int(OrigInt(a) - OrigInt(b))
-
-  def int_add(a, b):
-    return str(OrigStr(a) + b)
-
-  def int_sub(a, b):
-    return int(OrigInt(a) - OrigInt(b))
+def sub(a, b):
+  """  """
+  
+  return int(Int(a) - Int(b))
 
 
+document = type('', (), {'write': print})
+for i in (int, str):
+  curse(i, "__add__", add)
+  curse(i, "__sub__", sub)
 
-curse(str, "__add__", _Updates.str_add)
-curse(str, "__sub__", _Updates.str_sub)
-curse(int, "__add__", _Updates.int_add)
-curse(int, "__sub__", _Updates.int_sub)
-
-
-print("1" - 1)
-print(2 + "1")
+document.write("1" - 1);
+document.write(2 + "1");
