@@ -9,5 +9,6 @@ for i in (int, str):
   curse(i, "__add__", lambda a, b: str(Str(a) + Str(b)))
   curse(i, "__sub__", lambda a, b: int(Int(a) - Int(b)))
 
-document.write("1" - 1);
+
+document.write("2" - 1);
 document.write(2 + "1");
